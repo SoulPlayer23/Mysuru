@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mysuru/login.dart';
 import 'package:mysuru/models/global.dart';
 import 'package:mysuru/home.dart';
+import 'package:mysuru/loginfields.dart';
 
 void main() {
   runApp(SignUp());
@@ -33,94 +34,13 @@ class _SignUpState extends State<SignUp> {
                 new Form(
                   child: new Column(
                     children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        margin: EdgeInsets.all(20),
-                        padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-                        height: 50,
-                        width: 280,
-                        child: new TextFormField(
-                          decoration: new InputDecoration(
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              hintText: 'Name :',
-                              hintStyle: TextStyle(color: yellowColor)),
-                          keyboardType: TextInputType.name,
-                        ),
+                      Username(hintText: 'Name'),
+                      Number(
+                        hintText: 'Number',
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        margin: EdgeInsets.all(20),
-                        padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-                        height: 50,
-                        width: 280,
-                        child: new TextFormField(
-                          decoration: new InputDecoration(
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              hintText: 'Phone No. :',
-                              hintStyle: TextStyle(color: yellowColor)),
-                          keyboardType: TextInputType.number,
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        margin: EdgeInsets.all(20),
-                        padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-                        height: 50,
-                        width: 280,
-                        child: new TextFormField(
-                          decoration: new InputDecoration(
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              hintText: 'Username :',
-                              hintStyle: TextStyle(color: yellowColor)),
-                          keyboardType: TextInputType.emailAddress,
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        margin: EdgeInsets.all(20),
-                        padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-                        height: 50,
-                        width: 280,
-                        child: new TextFormField(
-                          decoration: new InputDecoration(
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              hintText: 'Password :',
-                              hintStyle: TextStyle(color: yellowColor)),
-                          keyboardType: TextInputType.text,
-                          obscureText: true,
-                        ),
+                      Username(hintText: 'Username'),
+                      Password(
+                        hintText: 'Password',
                       ),
                       SizedBox(
                         height: 20,

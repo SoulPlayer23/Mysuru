@@ -4,6 +4,7 @@ import 'package:mysuru/home.dart';
 import 'package:mysuru/main.dart';
 import 'package:mysuru/models/global.dart';
 import 'signup.dart';
+import 'loginfields.dart';
 
 void main() {
   runApp(SignIn());
@@ -35,51 +36,10 @@ class _SignInState extends State<SignIn> {
                 new Form(
                   child: new Column(
                     children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        margin: EdgeInsets.all(20),
-                        padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-                        height: 50,
-                        width: 280,
-                        child: new TextFormField(
-                          decoration: new InputDecoration(
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              hintText: 'Username :',
-                              hintStyle: TextStyle(color: yellowColor)),
-                          keyboardType: TextInputType.emailAddress,
-                        ),
+                      Username(
+                        hintText: 'Username',
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.rectangle,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        margin: EdgeInsets.all(20),
-                        padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-                        height: 50,
-                        width: 280,
-                        child: new TextFormField(
-                          decoration: new InputDecoration(
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              hintText: 'Password :',
-                              hintStyle: TextStyle(color: yellowColor)),
-                          keyboardType: TextInputType.text,
-                          obscureText: true,
-                        ),
-                      ),
+                      Password(hintText: 'Password'),
                       SizedBox(
                         height: 20,
                       ),
