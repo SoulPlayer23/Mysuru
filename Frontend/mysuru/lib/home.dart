@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:mysuru/destination_model.dart';
+import 'package:mysuru/destination_screen.dart';
 import 'package:mysuru/models/global.dart';
-import 'scrollable_widget.dart';
+import 'package:mysuru/rewards_screen.dart';
+import 'destination_model.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,20 +12,54 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<int> numbers = [1, 2, 3, 5, 8];
-  // final List<String> places = [
-  //   'mysuru/assets/ranganathittu.jpg',
-  //   'mysuru/assets/bg1',
-  //   'mysuru/assets/brindavan_gardens',
-  //   'mysuru/assets/mysore_palace',
-  //   'mysuru/assets/philomina_cathedral',
-  // ];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: yellowColor,
+            elevation: 0.0,
+          ),
+          drawer: Drawer(
+            child: ListView(
+              children: [
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: yellowColor,
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.account_circle,
+                        size: 60,
+                      ),
+                      Text(
+                        'User',
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+                ListTile(
+                  title: Text('Item 1'),
+                  onTap: () {
+                    // Update the state of the app.
+                    // ...
+                  },
+                ),
+                ListTile(
+                  title: Text('Item 2'),
+                  onTap: () {
+                    // Update the state of the app.
+                    // ...
+                  },
+                ),
+              ],
+            ),
+          ),
           backgroundColor: yellowColor,
           body: Stack(
             children: <Widget>[
@@ -46,7 +83,7 @@ class _HomeState extends State<Home> {
               Container(
                 padding:
                     EdgeInsets.only(top: 40, bottom: 80, right: 20, left: 20),
-                margin: EdgeInsets.only(top: size.height * 0.35),
+                margin: EdgeInsets.only(top: size.height * 0.30),
                 height: 600,
                 decoration: BoxDecoration(
                   color: greyColor,
@@ -56,22 +93,30 @@ class _HomeState extends State<Home> {
                 ),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: numbers.length,
+                  itemCount: destinations.length,
                   itemBuilder: (context, index) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Card(
-                        color: Colors.white,
+                    Destination destination = destinations[index];
+                    return GestureDetector(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => DestinationScreen(
+                                    destination: destination,
+                                  ))),
+                      child: Container(
+                        margin: EdgeInsets.all(15),
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(40)),
+                            image: new DecorationImage(
+                                image: new AssetImage(destination.image),
+                                fit: BoxFit.fill)),
                         child: Container(
-                          // decoration: BoxDecoration(
-                          //     image: new DecorationImage(
-                          //         image: new AssetImage(places[index]))),
-                          child: Center(
-                            child: Text(
-                              numbers[index].toString(),
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 36.0),
-                            ),
+                          padding: EdgeInsets.only(top: 15, left: 20),
+                          child: Text(
+                            destination.dname,
+                            style: TextStyle(
+                                color: greyColor, fontSize: 21.0, height: 1.0),
                           ),
                         ),
                       ),
@@ -79,23 +124,27 @@ class _HomeState extends State<Home> {
                   },
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(top: size.height * 0.85),
-                padding: EdgeInsets.only(left: 20, top: 10, right: 20),
-                height: 150,
-                width: size.width,
-                decoration: BoxDecoration(
-                    color: yellowColor,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(40),
-                        topRight: Radius.circular(40))),
-                child: Text(
-                  'Rewards',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: greyColor,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => RewardsScreen())),
+                child: Container(
+                  margin: EdgeInsets.only(top: size.height * 0.80),
+                  padding: EdgeInsets.only(left: 20, top: 10, right: 20),
+                  height: 150,
+                  width: size.width,
+                  decoration: BoxDecoration(
+                      color: yellowColor,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(40),
+                          topRight: Radius.circular(40))),
+                  child: Text(
+                    'Rewards',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: greyColor,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               )

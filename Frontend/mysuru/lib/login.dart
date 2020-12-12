@@ -1,7 +1,5 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mysuru/home.dart';
-import 'package:mysuru/main.dart';
 import 'package:mysuru/models/global.dart';
 import 'signup.dart';
 import 'loginfields.dart';
