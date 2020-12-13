@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:mysuru/destination_model.dart';
 import 'package:mysuru/destination_screen.dart';
+import 'package:mysuru/main_drawer.dart';
 import 'package:mysuru/models/global.dart';
 import 'package:mysuru/rewards_screen.dart';
 import 'destination_model.dart';
@@ -22,44 +23,7 @@ class _HomeState extends State<Home> {
             backgroundColor: yellowColor,
             elevation: 0.0,
           ),
-          drawer: Drawer(
-            child: ListView(
-              children: [
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: yellowColor,
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.account_circle,
-                        size: 60,
-                      ),
-                      Text(
-                        'User',
-                        style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-                ListTile(
-                  title: Text('Item 1'),
-                  onTap: () {
-                    // Update the state of the app.
-                    // ...
-                  },
-                ),
-                ListTile(
-                  title: Text('Item 2'),
-                  onTap: () {
-                    // Update the state of the app.
-                    // ...
-                  },
-                ),
-              ],
-            ),
-          ),
+          drawer: MainDrawer(),
           backgroundColor: yellowColor,
           body: Stack(
             children: <Widget>[
