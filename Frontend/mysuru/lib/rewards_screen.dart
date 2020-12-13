@@ -10,6 +10,7 @@ class _RewardsScreenState extends State<RewardsScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
           body: Stack(children: [

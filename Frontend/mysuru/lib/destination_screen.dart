@@ -16,6 +16,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
           backgroundColor: greyColor,
